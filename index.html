@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWA Interiors</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #333;
+    color: #fff;
+}
+
+#services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.service-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+#gallery {
+    padding: 2rem;
+    text-align: center;
+}
+
+#gallery img {
+    max-width: 100%;
+    margin: 1rem;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SWA Interiors</h1>
+        <p>Transforming Spaces with Style and Elegance</p>
+    </header>
+    <section id="services">
+        <div class="service-card" onclick="openGallery('modular-kitchens')">
+            <h2>Modern Modular Kitchens</h2>
+            <p>Stylish and functional kitchens designed for modern living.</p>
+        </div>
+        <div class="service-card" onclick="openGallery('tv-units')">
+            <h2>TV Units</h2>
+            <p>Customized TV units to suit your living room decor.</p>
+        </div>
+        <div class="service-card" onclick="openGallery('wardrobes')">
+            <h2>Wardrobes</h2>
+            <p>Spacious and stylish wardrobes for all your storage needs.</p>
+        </div>
+        <div class="service-card" onclick="openGallery('furniture')">
+            <h2>Furniture and Furnishings</h2>
+            <p>Elegant furniture and furnishings to enhance your home.</p>
+        </div>
+        <div class="service-card" onclick="openGallery('bathroom')">
+            <h2>Bathroom and Vanity</h2>
+            <p>Modern bathroom designs with a touch of luxury.</p>
+        </div>
+        <div class="service-card" onclick="openGallery('flooring')">
+            <h2>Wooden Flooring</h2>
+            <p>Durable and stylish wooden flooring options.</p>
+        </div>
+        <div class="service-card" onclick="openGallery('ceilings')">
+            <h2>False Ceilings</h2>
+            <p>Innovative false ceiling designs for a modern look.</p>
+        </div>
+        <div class="service-card" onclick="openGallery('pooja-units')">
+            <h2>Pooja Units</h2>
+            <p>Beautifully crafted pooja units for your spiritual space.</p>
+        </div>
+        <div class="service-card" onclick="openGallery('breakfast-counters')">
+            <h2>Breakfast Counters</h2>
+            <p>Functional breakfast counters for a quick meal.</p>
+        </div>
+    </section>
+    <section id="gallery" style="display: none;">
+        <button onclick="closeGallery()">Back to Services</button>
+        <div id="gallery-content"></div>
+    </section>
+    <script>
+        function openGallery(service) {
+    document.getElementById('services').style.display = 'none';
+    document.getElementById('gallery').style.display = 'block';
+    const galleryContent = document.getElementById('gallery-content');
+    galleryContent.innerHTML = '';
+
+    if (service === 'modular-kitchens') {
+        galleryContent.innerHTML = `
+            <h2>Modern Modular Kitchens</h2>
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Modular%20Kitchen%201.png?raw=true" alt="Modular Kitchen 1">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Modular%20Kitchen%202.png?raw=true" alt="Modular Kitchen 2">
+        `;
+    }
+    // Add more conditions for other services
+}
+
+function closeGallery() {
+    document.getElementById('services').style.display = 'flex';
+    document.getElementById('gallery').style.display = 'none';
+}
+
+    </script>
+</body>
+</html>
