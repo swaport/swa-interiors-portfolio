@@ -19,7 +19,7 @@
             color: #ffc107;
         }
 
-        #services {
+        #services, #extras {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -27,7 +27,7 @@
             background-color: #001f3f;
         }
 
-        .service-card {
+        .service-card, .extra-card {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -40,9 +40,14 @@
             transition: transform 0.2s;
         }
 
-        .service-card:hover {
+        .service-card:hover, .extra-card:hover {
             transform: scale(1.05);
             border-color: #ffc107;
+        }
+
+        .service-card img {
+            max-width: 100%;
+            border-radius: 8px;
         }
 
         #gallery {
@@ -73,6 +78,13 @@
         button:hover {
             background-color: #e0a800;
         }
+
+        #meet-us {
+            text-align: center;
+            padding: 2rem;
+            background-color: #001f3f;
+            color: #ffc107;
+        }
     </style>
 </head>
 <body>
@@ -82,40 +94,64 @@
     </header>
     <section id="services">
         <div class="service-card" onclick="openGallery('Modular Kitchen')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Modular%20Kitchen%201.png?raw=true" alt="Modular Kitchen 1">
             <h2>Modern Modular Kitchens</h2>
             <p>Stylish and functional kitchens designed for modern living.</p>
         </div>
         <div class="service-card" onclick="openGallery('TV Unit')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/TV%20Unit%201.png?raw=true" alt="TV Unit 1">
             <h2>TV Units</h2>
             <p>Customized TV units to suit your living room decor.</p>
         </div>
         <div class="service-card" onclick="openGallery('Wardrobe')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Wardrobe%201.png?raw=true" alt="Wardrobe 1">
             <h2>Wardrobes</h2>
             <p>Spacious and stylish wardrobes for all your storage needs.</p>
         </div>
         <div class="service-card" onclick="openGallery('Furniture')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Furniture%201.png?raw=true" alt="Furniture 1">
             <h2>Furniture and Furnishings</h2>
             <p>Elegant furniture and furnishings to enhance your home.</p>
         </div>
         <div class="service-card" onclick="openGallery('Bathroom')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Bathroom%201.png?raw=true" alt="Bathroom 1">
             <h2>Bathroom and Vanity</h2>
             <p>Modern bathroom designs with a touch of luxury.</p>
         </div>
         <div class="service-card" onclick="openGallery('Wooden Flooring')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Wooden%20Flooring%201.png?raw=true" alt="Wooden Flooring 1">
             <h2>Wooden Flooring</h2>
             <p>Durable and stylish wooden flooring options.</p>
         </div>
         <div class="service-card" onclick="openGallery('False Ceiling')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/False%20Ceiling%201.png?raw=true" alt="False Ceiling 1">
             <h2>False Ceilings</h2>
             <p>Innovative false ceiling designs for a modern look.</p>
         </div>
         <div class="service-card" onclick="openGallery('Pooja Unit')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Pooja%20Unit%201.png?raw=true" alt="Pooja Unit 1">
             <h2>Pooja Units</h2>
             <p>Beautifully crafted pooja units for your spiritual space.</p>
         </div>
         <div class="service-card" onclick="openGallery('Breakfast Counter')">
+            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Breakfast%20Counter%201.png?raw=true" alt="Breakfast Counter 1">
             <h2>Breakfast Counters</h2>
             <p>Functional breakfast counters for a quick meal.</p>
+        </div>
+    </section>
+    <section id="meet-us">
+        <h2>Meet Us</h2>
+        <p>At our company, we are passionate about creating beautiful and functional spaces that enhance the lives of our clients. We believe that a well-designed space can inspire and uplift, and we strive to bring that feeling to every project we work on.</p>
+    </section>
+    <section id="extras">
+        <div class="extra-card">
+            <h2>1000+ Projects</h2>
+        </div>
+        <div class="extra-card">
+            <h2>13 years experience</h2>
+        </div>
+        <div class="extra-card">
+            <h2>15 years warranty</h2>
         </div>
     </section>
     <section id="gallery" style="display: none;">
@@ -131,7 +167,7 @@
 
             let images = '';
             for (let i = 1; i <= 20; i++) {
-                images += `<img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/${service}%20${i}.png?raw=true" alt="${service} ${i}">`;
+                images += `<img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/${service.replace(' ', '%20')}%20${i}.png?raw=true" alt="${service} ${i}">`;
             }
 
             galleryContent.innerHTML = `<h2>${service.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</h2>` + images;
