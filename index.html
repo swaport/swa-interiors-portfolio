@@ -95,6 +95,16 @@
         .highlight {
             color: #ffc107;
         }
+
+        @media only screen and (max-width: 768px) {
+            .service-card, .extra-card {
+                width: 90%;
+            }
+
+            button {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -159,14 +169,13 @@
             <h2><span class="highlight">1000+</span> Projects</h2>
         </div>
         <div class="extra-card">
-            <img src="https://img.icons8.com/ios-filled/50/000000/experience.png" alt="Experience Icon">
+            <img width="60" height="60" src="https://img.icons8.com/ios-glyphs/60/customer-insight.png" alt="customer-insight"/>
             <h2><span class="highlight">13 years</span> experience</h2>
         </div>
         <div class="extra-card">
             <img src="https://img.icons8.com/ios-filled/50/000000/5-star-hotel.png" alt="Warranty Icon">
             <h2><span class="highlight">15 years</span> warranty</h2>
             <div>
-                <img src="https://img.icons8.com/ios-filled/20/ffc107/star.png" alt="Star">
                 <img src="https://img.icons8.com/ios-filled/20/ffc107/star.png" alt="Star">
                 <img src="https://img.icons8.com/ios-filled/20/ffc107/star.png" alt="Star">
                 <img src="https://img.icons8.com/ios-filled/20/ffc107/star.png" alt="Star">
@@ -187,10 +196,10 @@
 
             let images = '';
             for (let i = 1; i <= 20; i++) {
-                images += `<img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/${service.replace(' ', '%20')}%20${i}.png?raw=true" alt="${service} ${i}">`;
+                images += `<img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/${service}%20${i}.png?raw=true" alt="${service} ${i}">`;
             }
 
-            galleryContent.innerHTML = `<h2>${service.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</h2>` + images;
+            galleryContent.innerHTML = `<h2 style="color: white;">${service}</h2>` + images;
         }
 
         function closeGallery() {
