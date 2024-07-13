@@ -6,53 +6,72 @@
     <title>SWA Interiors</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
 
-header {
-    text-align: center;
-    padding: 2rem;
-    background-color: #333;
-    color: #fff;
-}
+        header {
+            text-align: center;
+            padding: 2rem;
+            background-color: #001f3f;
+            color: #ffc107;
+        }
 
-#services {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem;
-}
+        #services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #001f3f;
+        }
 
-.service-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
-    padding: 1rem;
-    width: 200px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
+        .service-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+            padding: 1rem;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
 
-.service-card:hover {
-    transform: scale(1.05);
-}
+        .service-card:hover {
+            transform: scale(1.05);
+            border-color: #ffc107;
+        }
 
-#gallery {
-    padding: 2rem;
-    text-align: center;
-}
+        #gallery {
+            padding: 2rem;
+            text-align: center;
+            background-color: #001f3f;
+        }
 
-#gallery img {
-    max-width: 100%;
-    margin: 1rem;
-}
+        #gallery img {
+            max-width: 100%;
+            margin: 1rem;
+            border: 3px solid #ffc107;
+            border-radius: 8px;
+        }
 
+        button {
+            background-color: #ffc107;
+            color: #001f3f;
+            border: none;
+            padding: 1rem 2rem;
+            margin: 1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #e0a800;
+        }
     </style>
 </head>
 <body>
@@ -104,26 +123,23 @@ header {
     </section>
     <script>
         function openGallery(service) {
-    document.getElementById('services').style.display = 'none';
-    document.getElementById('gallery').style.display = 'block';
-    const galleryContent = document.getElementById('gallery-content');
-    galleryContent.innerHTML = '';
+            document.getElementById('services').style.display = 'none';
+            document.getElementById('gallery').style.display = 'block';
+            const galleryContent = document.getElementById('gallery-content');
+            galleryContent.innerHTML = '';
 
-    if (service === 'modular-kitchens') {
-        galleryContent.innerHTML = `
-            <h2>Modern Modular Kitchens</h2>
-            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Modular%20Kitchen%201.png?raw=true" alt="Modular Kitchen 1">
-            <img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/Modular%20Kitchen%202.png?raw=true" alt="Modular Kitchen 2">
-        `;
-    }
-    // Add more conditions for other services
-}
+            let images = '';
+            for (let i = 1; i <= 20; i++) {
+                images += `<img src="https://github.com/swaport/swa-interiors-portfolio/blob/main/${service}%20${i}.png?raw=true" alt="${service} ${i}">`;
+            }
 
-function closeGallery() {
-    document.getElementById('services').style.display = 'flex';
-    document.getElementById('gallery').style.display = 'none';
-}
+            galleryContent.innerHTML = `<h2>${service.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</h2>` + images;
+        }
 
+        function closeGallery() {
+            document.getElementById('services').style.display = 'flex';
+            document.getElementById('gallery').style.display = 'none';
+        }
     </script>
 </body>
 </html>
